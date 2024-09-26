@@ -10,9 +10,6 @@ This README.md file serves as a guide for the Streaming Data Project, which retr
 - [Functions](#functions)
 - [Non-functional Requirements](#non-functional-requirements)
 - [Performance Criteria](#performance-criteria)
-- [License](#license)
-- [Contributing](#contributing)
-- [Contact](#contact)
 
 ## Requirements
 
@@ -59,7 +56,7 @@ The project requires the following:
 1. **Run the Application:**
 
    ```bash
-   python your_script_name.py
+   python script.py
    ```
 
 2. **Input:**
