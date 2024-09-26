@@ -21,34 +21,34 @@ kinesis_client = boto3.client(
 def get_user_input():
     user_query = input("Enter your search: ")
     print(" ")
-    print(f"Click Enter to search from today's date: {date.today()}")
-    date_from = input("Enter a start date YYYY-MM-DD: ")
+    print(f"Click Enter To Start Search From {date.today().year}-01-01: ")
+    date_from = input("Or Enter A Start Date (YYYY-MM-DD): ")
     return user_query, date_from
 
 
 def validate_date(date_from):
     while True:
         if date_from == "":
-            return date.today().strftime("%Y-%m-%d"), "newest"
+            return f"{date.today().year}-01-01"
         else:
             try:
                 datetime.strptime(date_from, "%Y-%m-%d").date()
-                return date_from, "newest"
+                return date_from
             except ValueError:
                 print(" ")
                 print(f"{date_from} is not a valid date")
-                print(f"Click Enter to search from today's date: {date.today()}")
-                date_from = input("Please enter a valid date YYYY-MM-DD: ")
+                print(f"Click Enter To Start Search From {date.today().year}-01-01: ")
+                date_from = input("Or Enter A Valid Date (YYYY-MM-DD): ")
 
 
-def make_api_request(user_query, date_from, order_by):
+def make_api_request(user_query, date_from ):
     BASE_URL = "https://content.guardianapis.com/search"
 
     params = {
         "api-key": API_KEY,
         "q": user_query,
         "from-date": date_from,
-        "order-by": order_by,
+        "order-by": "oldest",
         "show-fields": "all",
         "page-size": 10,
     }
@@ -116,14 +116,14 @@ def main():
 
     while True:
         user_query, date_from = get_user_input()
-        date_from, order_by = validate_date(date_from)
+        date_from  = validate_date(date_from)
 
         print(" ")
         print(f"...Searching Guardian for articles on {(user_query).upper()} "
               f"from {date_from}...")
         print(" ")
 
-        response = make_api_request(user_query, date_from, order_by)
+        response = make_api_request(user_query, date_from )
         results = handle_response(response)
 
         if not results:
