@@ -9,7 +9,6 @@ This README.md file serves as a guide for the Streaming Data Project, which retr
 - [Usage](#usage)
 - [Functions](#functions)
 - [Non-functional Requirements](#non-functional-requirements)
-- [Performance Criteria](#performance-criteria)
 
 ## Requirements
 
