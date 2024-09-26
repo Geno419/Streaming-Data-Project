@@ -26,13 +26,13 @@ The project requires the following:
 1. **Clone the Repository:**
 
    ```bash
-   git clone <repository-url>
-   cd <repository-directory>
+   git clone https://github.com/Geno419/Streaming-Data-Project.git
+   cd Streaming-Data-Project
    ```
 
 2. **Install Dependencies:**
 
-   Assuming a `requirements.txt` file is present, install dependencies using:
+   Install dependencies using:
 
    ```bash
    pip install -r requirements.txt
@@ -61,7 +61,7 @@ The project requires the following:
 2. **Input:**
 
    - The application will prompt you to enter a search term.
-   - Optionally, you can enter a start date in YYYY-MM-DD format. Pressing Enter defaults to today's date.
+   - Optionally, you can enter a start date in YYYY-MM-DD format. Pressing Enter defaults to the start of the year.
 
 3. **Output:**
 
